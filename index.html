@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kutch Trip Nov 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf8f6',
+                            100: '#fbe8e3',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@320;330;340;480;540;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .font-mono-figma { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.54px; text-transform: uppercase; }
+        .display-title { font-weight: 340; letter-spacing: -1px; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body id="app-body" class="bg-white dark:bg-neutral-950 text-black dark:text-white min-h-screen transition-colors duration-300">
+
+    <!-- Mobile Top App Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 dark:bg-neutral-950/95 border-b border-neutral-200 dark:border-neutral-800 shadow-sm">
+        <div class="px-4 h-14 flex items-center justify-between">
+            <div class="flex items-center space-x-2.5">
+                <div class="w-8 h-8 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-compass text-xs"></i>
+                </div>
+                <div>
+                    <h1 id="ui-title" class="font-bold text-sm tracking-tight">Kutch Trip Nov 2026</h1>
+                    <p id="ui-subtitle" class="text-[10px] text-neutral-500 font-mono-figma">Mobile Itinerary</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+                <!-- Language Selector -->
+                <div class="relative">
+                    <select id="lang-selector" class="appearance-none bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 text-[11px] font-mono-figma font-medium px-3 py-1.5 pr-6 rounded-full border border-neutral-300 dark:border-neutral-700 focus:outline-none">
+                        <option value="gujish">🇮🇳 Gujish</option>
+                        <option value="gujarati"> 🏴ગુજરાતી</option>
+                        <option value="english">🇺🇸 English</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1.5 text-neutral-500">
+                        <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                    </div>
+                </div>
+
+                <!-- Theme Selector -->
+                <div class="relative">
+                    <select id="theme-selector" class="appearance-none bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 text-[11px] font-mono-figma font-medium px-3 py-1.5 pr-6 rounded-full border border-neutral-300 dark:border-neutral-700 focus:outline-none">
+                        <option value="pastel">🎨 Pastel</option>
+                        <option value="light">☀️ Light</option>
+                        <option value="dark">🌙 Dark</option>
+                        <option value="navy">⚓ Navy</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1.5 text-neutral-500">
+                        <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Marquee Ticker -->
+    <div class="bg-black text-white dark:bg-neutral-900 dark:text-neutral-200 h-7 flex items-center overflow-hidden whitespace-nowrap text-[10px] font-mono-figma px-3">
+        <div class="flex space-x-8 animate-marquee">
+            <span id="ticker-1">◆ 8-DAY ROAD TRIP ITINERARY</span>
+            <span id="ticker-2">◆ GOOGLE MAPS ROUTE INTEGRATION</span>
+            <span id="ticker-3">◆ KUTCH & SAURASHTRA EXPLORER</span>
+        </div>
+    </div>
+
+    <!-- Main Mobile Container -->
+    <main class="px-4 py-5 max-w-md mx-auto">
+        
+        <!-- Mobile Hero Card -->
+        <div id="hero-banner" class="mb-5 rounded-2xl p-5 border shadow-sm relative overflow-hidden transition-all duration-300">
+            <div class="absolute right-3 -bottom-3 opacity-10 text-7xl">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="relative z-10">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-black text-white dark:bg-white dark:text-black text-[10px] font-mono-figma mb-2.5">
+                    NOV 8 - NOV 15, 2026
+                </span>
+                <h2 id="hero-title" class="display-title text-2xl font-extrabold tracking-tight mb-2">Explore Kutch & Saurashtra</h2>
+                <p id="hero-desc" class="text-xs sm:text-sm leading-relaxed mb-4 opacity-80 font-light">
+                    An 8-day road trip covering temples, palaces, white deserts, and cultural landmarks across Gujarat.
+                </p>
+                <div class="flex flex-col space-y-2 text-xs font-medium">
+                    <div class="flex items-center space-x-2 bg-white/60 dark:bg-neutral-800/60 px-3 py-2 rounded-xl border border-black/10 dark:border-white/10">
+                        <i class="fa-solid fa-road text-orange-500"></i>
+                        <span id="hero-stat-1">~2,100+ km Total Route Distance</span>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-white/60 dark:bg-neutral-800/60 px-3 py-2 rounded-xl border border-black/10 dark:border-white/10">
+                        <i class="fa-solid fa-hotel text-amber-500"></i>
+                        <span id="hero-stat-2">Multiple Hotel & Mandir Stays</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Horizontal Scrollable Day Selector Tabs -->
+        <div class="flex overflow-x-auto space-x-2 pb-3 mb-5 no-scrollbar" id="day-tabs">
+            <!-- Tabs injected dynamically via JS -->
+        </div>
+
+        <!-- Itinerary Content Container -->
+        <div id="itinerary-container" class="space-y-4">
+            <!-- Day card injected dynamically via JS -->
+        </div>
+
+    </main>
+
+    <!-- Mobile Footer -->
+    <footer class="mt-12 border-t border-neutral-200 dark:border-neutral-800 py-8 text-center text-[10px] text-neutral-500 font-mono-figma px-4">
+        <p id="footer-text">KUTCH TRIP 2026 • MOBILE ITINERARY APP</p>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        const tripData = [
+            {
+                day: 1,
+                date: "08.11.2026",
+                titles: {
+                    gujish: "Dakor & Modhera to Becharaji",
+                    gujarati: "ડાકોર અને મોઢેરા થી બેચરાજી",
+                    english: "Dakor & Modhera to Becharaji"
+                },
+                driving: "335 km",
+                duration: "6 hr 54 min",
+                nightStays: {
+                    gujish: "Dolphin Hotel, Becharaji Night Stay",
+                    gujarati: "ડોલફીન હોટલ, બેચરાજી નાઇટ સ્ટે",
+                    english: "Dolphin Hotel, Becharaji Night Stay"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "Dakor (ડાકોરજી દર્શન)", gujarati: "ડાકોરજી દર્શન", english: "Dakor Temple" }, descs: { gujish: "Famous temple of Ranchhodraiji (Lord Krishna).", gujarati: "રણછોડરાયજી (ભગવાન શ્રી કૃષ્ણ) મંદિર દર્શન.", english: "Famous temple of Ranchhodraiji (Lord Krishna)." }, query: "Dakor Temple Gujarat" },
+                    { label: "B", names: { gujish: "Adalaj Ni Vav (અદાલજ વાવ)", gujarati: "અદાલજ વાવ મુલાકાત", english: "Adalaj Stepwell" }, descs: { gujish: "Stunning 15th-century stepwell masterpiece.", query: "Adalaj Ni Vav", gujarati: "૧૫મી સદીની અદભુત વાવ મુલાકાત.", english: "Stunning 15th-century stepwell masterpiece." } },
+                    { label: "C", names: { gujish: "Modhera Sun Temple (મોઢેરા સુર્યમંદિર)", gujarati: "મોઢેરા સુર્યમંદિર દર્શન", english: "Modhera Sun Temple" }, descs: { gujish: "Magnificent 11th-century sun temple architecture.", query: "Modhera Sun Temple", gujarati: "ભવ્ય ૧૧મી સદીનું સૂર્ય મંદિર.", english: "Magnificent 11th-century sun temple architecture." } },
+                    { label: "D", names: { gujish: "Becharaji Mataji & Hotel Stay (બેચરાજી)", gujarati: "બેચરાજી માતાજી દર્શન અને હોટલ સ્ટે", english: "Becharaji Temple & Hotel Stay" }, descs: { gujish: "Goddess Becharaji temple & Dolphin Hotel night stay.", query: "Hotel Dolphin Becharaji", gujarati: "બેચરાજી માતાજી દર્શન અને ડોલફીન હોટલ નાઇટ સ્ટે.", english: "Goddess Becharaji temple & Dolphin Hotel night stay." } }
+                ],
+                mapQuery: "Dakor to Adalaj Ni Vav to Modhera Sun Temple to Dolphin Hotel Becharaji"
+            },
+            {
+                day: 2,
+                date: "09.11.2026",
+                titles: {
+                    gujish: "Kabrau to Anjar (New Year's Eve)",
+                    gujarati: "કબરાઉ થી અંજાર (ધોકો)",
+                    english: "Kabrau to Anjar (New Year's Eve)"
+                },
+                driving: "288 km",
+                duration: "6 hr 36 min",
+                nightStays: {
+                    gujish: "Swaminarayan Mandir, Anjar Night Stay & Check-in",
+                    gujarati: "અંજાર સ્વામીનારાયણ મંદિર નાઇટ સ્ટે ચેક ઈન",
+                    english: "Swaminarayan Mandir, Anjar Night Stay & Check-in"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "Mogal Dham Kabrau (મોગલ ધામ કબરાવ)", gujarati: "મોગલ ધામ કબરાવ દર્શન", english: "Mogal Dham Kabrau" }, descs: { gujish: "Sacred temple shrine visit.", query: "Mogal Dham Kabrau", gujarati: "પવિત્ર મોગલ ધામ કબરાવ દર્શન.", english: "Sacred temple shrine visit." } },
+                    { label: "B", names: { gujish: "Anjar Jasal Toral Samadhi (અંજાર)", gujarati: "અંજાર જેસલ તોરલ સમાધિ દર્શન", english: "Anjar Jasal Toral Samadhi" }, descs: { gujish: "Historical Jasal Toral tombs & check-in at Swaminarayan Mandir.", query: "Jasal Toral Samadhi Anjar", gujarati: "ઐતિહાસિક જેસલ તોરલ સમાધિ દર્શન અને સ્વામિનારાયણ મંદિર ચેક-ઇન.", english: "Historical Jasal Toral tombs & check-in at Swaminarayan Mandir." } }
+                ],
+                mapQuery: "Becharaji to Mogal Dham Kabrau to Anjar Swaminarayan Mandir"
+            },
+            {
+                day: 3,
+                date: "10.11.2026",
+                titles: {
+                    gujish: "Bhuj Heritage & Culture Tour (Bestu Varas)",
+                    gujarati: "ભુજ હેરિટેજ અને કલ્ચર ટૂર (નવું વર્ષ)",
+                    english: "Bhuj Heritage & Culture Tour"
+                },
+                driving: "95 km",
+                duration: "2 hr 25 min",
+                nightStays: {
+                    gujish: "Swaminarayan Mandir, Anjar (2nd Night Stay)",
+                    gujarati: "અંજાર સ્વામીનારાયણ મંદિર નાઇટ સ્ટે (બીજો દિવસ)",
+                    english: "Swaminarayan Mandir, Anjar (2nd Night Stay)"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "Bhuj Swaminarayan Mandir (ભુજ સ્વામિનારાયણ મંદિર)", gujarati: "ભુજ નરનારાયણદેવ સ્વામીનારાયણ મંદિર", english: "Bhuj Swaminarayan Mandir" }, descs: { gujish: "Narnarayan Dev temple with intricate carvings.", query: "Bhuj Swaminarayan Mandir", gujarati: "જટિલ નકશીકામ ધરાવતું નરનારાયણદેવ મંદિર.", english: "Narnarayan Dev temple with intricate carvings." } },
+                    { label: "B", names: { gujish: "Kutch Museum (કચ્છ મયુજીમ)", gujarati: "કચ્છ મ્યુઝિયમ", english: "Kutch Museum" }, descs: { gujish: "Oldest museum in Gujarat showcasing tribal artifacts.", query: "Kutch Museum Bhuj", gujarati: "ગુજરાતનું સૌથી જૂનું સંગ્રહાલય.", english: "Oldest museum in Gujarat showcasing tribal artifacts." } },
+                    { label: "C", names: { gujish: "Smritivan (સ્મૃતિવન)", gujarati: "સ્મૃતિવન ભૂજ", english: "Smritivan Earthquake Memorial" }, descs: { gujish: "Earthquake memorial museum on Bhujiyo hill.", query: "Smritivan Earthquake Memorial Bhuj", gujarati: "ભૂજિયા ડુંગર પર ભૂકંપ સ્મારક મ્યુઝિયમ.", english: "Earthquake memorial museum on Bhujiyo hill." } },
+                    { label: "D", names: { gujish: "Chhatardi (છતરડી)", gujarati: "છતરડી ભુજ", english: "Chhatardi Royal Cenotaphs" }, descs: { gujish: "Royal cenotaphs of the Jadeja rulers.", query: "Chhatardi Bhuj", gujarati: "જાડેજા શાસકોની રાજવી છતરડીઓ.", english: "Royal cenotaphs of the Jadeja rulers." } },
+                    { label: "E", names: { gujish: "Prag Mahal & Bhujiyo Fort (પ્રાગ મહેલ / ડુંગર)", gujarati: "પ્રાગ મહેલ અને ભૂજિયો ડુંગર", english: "Prag Mahal & Bhujiyo Fort" }, descs: { gujish: "Italian Gothic style palace and scenic hill fort.", query: "Prag Mahal Bhuj", gujarati: "ઇટાલિયન ગોથિક શૈલીનો મહેલ અને ડુંગર કિલ્લો.", english: "Italian Gothic style palace and scenic hill fort." } }
+                ],
+                mapQuery: "Anjar to Bhuj Swaminarayan Mandir to Kutch Museum to Smritivan to Prag Mahal to Anjar"
+            },
+            {
+                day: 4,
+                date: "11.11.2026",
+                titles: {
+                    gujish: "Mandvi Beach & Mata no Madh",
+                    gujarati: "માંડવી બીચ અને માતાનો મઢ",
+                    english: "Mandvi Beach & Mata no Madh"
+                },
+                driving: "347 km",
+                duration: "7 hr 47 min",
+                nightStays: {
+                    gujish: "Swaminarayan Mandir, Anjar (3rd Night Stay)",
+                    gujarati: "અંજાર સ્વામીનારાયણ મંદિર નાઇટ સ્ટે (ત્રીજો દિવસ)",
+                    english: "Swaminarayan Mandir, Anjar (3rd Night Stay)"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "Mandvi Beach (માંડવી બીચ)", gujarati: "માંડવી બીચ", english: "Mandvi Beach" }, descs: { gujish: "Scenic coastline and wind farms.", query: "Mandvi Beach Kutch", gujarati: "સુંદર દરિયાકિનારો અને વિન્ડ ફાર્મ.", english: "Scenic coastline and wind farms." } },
+                    { label: "B", names: { gujish: "Vijay Villas Palace (વિજય વિલાસ પેલેસ)", gujarati: "વિજય વિલાસ પેલેસ", english: "Vijay Villas Palace" }, descs: { gujish: "Summer palace of the Maharao of Kutch.", query: "Vijay Villas Palace Mandvi", gujarati: "કચ્છના મહારાવનો ઉનાળુ મહેલ.", english: "Summer palace of the Maharao of Kutch." } },
+                    { label: "C", names: { gujish: "Mata no Madh (આશાપુરા માતાનોમઢ)", gujarati: "આશાપુરા માતાનો મઢ", english: "Mata no Madh" }, descs: { gujish: "Holy shrine of Ashapura Mata, patron deity of Kutch.", query: "Mata no Madh Kutch", gujarati: "કચ્છની આરાધ્ય દેવી આશાપુરા માતાનું પવિત્ર મંદિર.", english: "Holy shrine of Ashapura Mata, patron deity of Kutch." } }
+                ],
+                mapQuery: "Anjar to Mandvi Beach to Vijay Villas Palace to Mata no Madh to Anjar"
+            },
+            {
+                day: 5,
+                date: "12.11.2026",
+                titles: {
+                    gujish: "White Rann, Kalo Dungar & Dholavira",
+                    gujarati: "સફેદ રણ, કાળો ડુંગર અને ધોળાવીરા",
+                    english: "White Rann, Kalo Dungar & Dholavira"
+                },
+                driving: "345 km",
+                duration: "7 hr 30 min",
+                nightStays: {
+                    gujish: "Swaminarayan Mandir, Anjar (4th Night Stay)",
+                    gujarati: "અંજાર સ્વામીનારાયણ મંદિર નાઇટ સ્ટે (ચોથો દિવસ)",
+                    english: "Swaminarayan Mandir, Anjar (4th Night Stay)"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "White Desert / Rann of Kutch (સફેદ રણ)", gujarati: "સફેદ રણ (કચ્છ)", english: "White Rann of Kutch" }, descs: { gujish: "Breathtaking vast white salt desert.", query: "Kutch White Desert Dhordo", gujarati: "વિશાળ આકર્ષક સફેદ રણ.", english: "Breathtaking vast white salt desert." } },
+                    { label: "B", names: { gujish: "Kalo Dungar (કાળો ડુંગર)", gujarati: "કાળો ડુંગર", english: "Kalo Dungar (Black Hill)" }, descs: { gujish: "Black Hill - highest point in Kutch with panoramic views.", query: "Kalo Dungar Kutch", gujarati: "કચ્છનું સૌથી ઊંચું શિખર અને સુંદર દ્રશ્યો.", english: "Black Hill - highest point in Kutch with panoramic views." } },
+                    { label: "C", names: { gujish: "Road to Heaven (રોડ ટુ હેવન)", gujarati: "રોડ ટુ હેવન", english: "Road to Heaven Highway" }, descs: { gujish: "Scenic straight highway passing through the salt flats.", query: "Road to Heaven Kutch", gujarati: "મીઠાના અસંખ્ય મેદાનો વચ્ચે પસાર થતો સીધો હાઇવે.", english: "Scenic straight highway passing through the salt flats." } },
+                    { label: "D", names: { gujish: "Dholavira (ધોળાવીરા)", gujarati: "ધોળાવીરા (હડપ્પન સંસ્કૃતિ)", english: "Dholavira UNESCO Site" }, descs: { gujish: "UNESCO World Heritage ancient Indus Valley Civilization site.", query: "Dholavira Archaeological Site", gujarati: "યુનેસ્કો વર્લ્ડ હેરિટેજ પ્રાચીન હડપ્પન સભ્યતા સ્થળ.", english: "UNESCO World Heritage ancient Indus Valley Civilization site." } }
+                ],
+                mapQuery: "Anjar to White Desert Kutch to Kalo Dungar to Road to Heaven to Dholavira to Anjar"
+            },
+            {
+                day: 6,
+                date: "13.11.2026",
+                titles: {
+                    gujish: "Anjar Checkout to Chotila",
+                    gujarati: "અંજાર થી ચોટીલા પ્રસ્થાન",
+                    english: "Anjar Checkout to Chotila"
+                },
+                driving: "194 km",
+                duration: "4 hr 23 min",
+                nightStays: {
+                    gujish: "Chotila Night Stay",
+                    gujarati: "ચોટીલા નાઇટ સ્ટે",
+                    english: "Chotila Night Stay"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "Anjar Check-out & Chotila Temple Stay (ચોટીલા)", gujarati: "ચોટીલા મંદિર નાઇટ સ્ટે", english: "Chotila Temple Stay" }, descs: { gujish: "Checkout from Anjar & arrival near sacred Chamunda Mata hill.", query: "Chotila Temple", gujarati: "અંજારથી ચેક-આઉટ કરી ચોટીલા ચામુંડા માતાજી ડુંગર દર્શન અને નાઇટ સ્ટે.", english: "Checkout from Anjar & arrival near sacred Chamunda Mata hill." } }
+                ],
+                mapQuery: "Anjar to Morbi to Wankaner to Rajkot to Chotila"
+            },
+            {
+                day: 7,
+                date: "14.11.2026",
+                titles: {
+                    gujish: "Sarangpur & Bagdana Tour (Paayam)",
+                    gujarati: "સારંગપુર અને બગદાણા ટૂર (પાંચમ)",
+                    english: "Sarangpur & Bagdana Tour"
+                },
+                driving: "260 km",
+                duration: "6 hr 57 min",
+                nightStays: {
+                    gujish: "Nana Asrana Branch Night Stay",
+                    gujarati: "નાના આશરાણા નાઇટ સ્ટે",
+                    english: "Nana Asrana Branch Night Stay"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "Sarangpur (સારંગપુર)", gujarati: "સારંગપુર કષ્ટભંજન હનુમાનજી મંદિર", english: "Sarangpur Hanuman Temple" }, descs: { gujish: "Renowned Kashtabhanjan Hanumanji Temple.", query: "Shree Kashtabhanjan Dev Hanumanji Temple Sarangpur", gujarati: "પ્રસિદ્ધ કષ્ટભંજનદેવ હનુમાનજી મંદિર દર્શન.", english: "Renowned Kashtabhanjan Hanumanji Temple." } },
+                    { label: "B", names: { gujish: "Bagdana (બગદાણાં)", gujarati: "બગદાણા બાપા સીતારામ આશ્રમ", english: "Bagdana Baapa Sitaram" }, descs: { gujish: "Holy shrine of Baapa Sitaram (Bajrang Das Bapa).", query: "Bagdana Ashram", gujarati: "પવિત્ર તીર્થસ્થાન બગદાણા બાપા સિતારામ આશ્રમ.", english: "Holy shrine of Baapa Sitaram (Bajrang Das Bapa)." } },
+                    { label: "C", names: { gujish: "Nana Asrana Branch (નાના આશરાણા)", gujarati: "નાના આશરાણા બ્રાન્ચ નાઇટ સ્ટે", english: "Nana Asrana Branch" }, descs: { gujish: "Night stay location.", query: "Nana Asrana Gujarat", gujarati: "નાના આશરાણા મુકામે નાઇટ સ્ટે.", english: "Night stay location." } }
+                ],
+                mapQuery: "Chotila to Sarangpur to Bagdana to Nana Asrana Branch"
+            },
+            {
+                day: 8,
+                date: "15.11.2026",
+                titles: {
+                    gujish: "Bhadrod Family Function & Coastal Tour",
+                    gujarati: "ભાદ્રોડ પરિવાર ફંકશન અને કોસ્ટલ ટૂર",
+                    english: "Bhadrod Family Function & Coastal Tour"
+                },
+                driving: "168 km",
+                duration: "4 hr 27 min",
+                nightStays: {
+                    gujish: "Simar Night Stay",
+                    gujarati: "સિમર નાઇટ સ્ટે",
+                    english: "Simar Night Stay"
+                },
+                waypoints: [
+                    { label: "A", names: { gujish: "Bhadrod Chotala Family Function (ભાદ્રોડ છોટાળા પરિવાર)", gujarati: "ભાદ્રોડ છોટાળા પરિવાર ફંકશન", english: "Bhadrod Family Function" }, descs: { gujish: "Family gathering and function.", query: "Bhadrod Gujarat", gujarati: "પરિવારિક મેળાવડો અને ફંકશન.", english: "Family gathering and function." } },
+                    { label: "B", names: { gujish: "Dolti (દોલતી)", gujarati: "દોલતી માડણંદાદા દર્શન", english: "Dolti Darshan" }, descs: { gujish: "Madhandada darshan spot.", query: "Dolti Gujarat", gujarati: "માડણંદાદા દર્શન.", english: "Madhandada darshan spot." } },
+                    { label: "C", names: { gujish: "Dhatarvad (ધાતલવડ)", gujarati: "ધાતલવડ વિસ્તાર", english: "Dhatarvad Spot" }, descs: { gujish: "Scenic regional location.", query: "Dhatarvad Gujarat", gujarati: "રમણીય ગ્રામ્ય વિસ્તાર.", english: "Scenic regional location." } },
+                    { label: "D", names: { gujish: "Simar Night Stay & Coast (સિમર)", gujarati: "સિમર / રાજુલા કોસ્ટલ નાઇટ સ્ટે", english: "Simar Coast Night Stay" }, descs: { gujish: "Night stay near Simar / Rajula coastal region.", query: "Simar Gujarat", gujarati: "સિમર અને રાજુલા દરિયાકાંઠાના વિસ્તારમાં નાઇટ સ્ટે.", english: "Night stay near Simar / Rajula coastal region." } }
+                ],
+                mapQuery: "Nana Asrana to Bhadrod to Dolti to Dhatarvad to Simar Rajula"
+            }
+        ];
+
+        let activeDay = 1;
+        let currentTheme = localStorage.getItem('kutch_mobile_theme') || 'pastel';
+        let currentLang = localStorage.getItem('kutch_mobile_lang') || 'gujish'; // Default to Gujish
+
+        const themeSelector = document.getElementById('theme-selector');
+        const langSelector = document.getElementById('lang-selector');
+        const htmlElement = document.documentElement;
+        const heroBanner = document.getElementById('hero-banner');
+
+        // UI text translations for top bar, footer, ticker
+        const uiText = {
+            gujish: {
+                title: "Kutch Trip Nov 2026", subtitle: "Mobile Itinerary",
+                heroTitle: "Explore Kutch & Saurashtra",
+                heroDesc: "An 8-day road trip covering temples, palaces, white deserts, and cultural landmarks across Gujarat.",
+                stat1: "~2,100+ km Total Route Distance", stat2: "Multiple Hotel & Mandir Stays",
+                ticker1: "◆ 8-DAY ROAD TRIP ITINERARY", ticker2: "◆ GOOGLE MAPS ROUTE INTEGRATION", ticker3: "◆ KUTCH & SAURASHTRA EXPLORER",
+                footer: "KUTCH TRIP 2026 • MOBILE ITINERARY APP",
+                mapBtn: "OPEN FULL MAP ROUTE", nightStayLabel: "Night Stay:", locateBtn: "Locate", waypointsTitle: "Route Waypoints"
+            },
+            gujarati: {
+                title: "કચ્છ ટ્રીપ નવેમ્બર ૨૦૨૬", subtitle: "મોબાઇલ આઇટિનરરી",
+                heroTitle: "કચ્છ અને સૌરાષ્ટ્ર પ્રવાસ",
+                heroDesc: "ગુજરાતભરમાં મંદિરો, મહેલો, સફેદ રણ અને સાંસ્કૃતિક સ્થળો આવરી લેતી ૮-દિવસીય રોડ ટ્રિપ.",
+                stat1: "~૨,૧૦૦+ કિમી કુલ ડ્રાઇવીંગ અંતર", stat2: "હોટેલ અને મંદિર મુકામે નાઇટ સ્ટે",
+                ticker1: "◆ ૮-દિવસીય રોડ ટ્રિપ પ્લાનર", ticker2: "◆ ગૂગલ મેપ્સ રૂટ ઇન્ટિગ્રેશન", ticker3: "◆ કચ્છ અને સૌરાષ્ટ્ર એક્સપ્લોરર",
+                footer: "કચ્છ ટ્રીપ ૨૦૨૬ • મોબાઇલ આઇટિનરરી એપ",
+                mapBtn: "સંપૂર્ણ મેપ રૂટ ખોલો", nightStayLabel: "નાઇટ સ્ટે:", locateBtn: "લોકેટ કરો", waypointsTitle: "રૂટના સ્થળો"
+            },
+            english: {
+                title: "Kutch Trip Nov 2026", subtitle: "Mobile Itinerary",
+                heroTitle: "Explore Kutch & Saurashtra",
+                heroDesc: "An 8-day road trip covering temples, palaces, white deserts, and cultural landmarks across Gujarat.",
+                stat1: "~2,100+ km Total Route Distance", stat2: "Multiple Hotel & Mandir Stays",
+                ticker1: "◆ 8-DAY ROAD TRIP ITINERARY", ticker2: "◆ GOOGLE MAPS ROUTE INTEGRATION", ticker3: "◆ KUTCH & SAURASHTRA EXPLORER",
+                footer: "KUTCH TRIP 2026 • MOBILE ITINERARY APP",
+                mapBtn: "OPEN FULL MAP ROUTE", nightStayLabel: "Night Stay:", locateBtn: "Locate", waypointsTitle: "Route Waypoints"
+            }
+        };
+
+        function applyTheme(theme) {
+            currentTheme = theme;
+            localStorage.setItem('kutch_mobile_theme', theme);
+            themeSelector.value = theme;
+
+            htmlElement.classList.remove('dark');
+            heroBanner.className = "mb-5 rounded-2xl p-5 border shadow-sm relative overflow-hidden transition-all duration-300";
+
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                heroBanner.classList.add('bg-neutral-900', 'text-white', 'border-neutral-800');
+            } else if (theme === 'pastel') {
+                const pastelBg = ['bg-[#dceeb1]', 'bg-[#c5b0f4]', 'bg-[#f4ecd6]', 'bg-[#efd4d4]', 'bg-[#c8e6cd]', 'bg-[#f3c9b6]'][activeDay - 1] || 'bg-[#dceeb1]';
+                heroBanner.classList.add(pastelBg, 'text-neutral-900', 'border-black/10');
+            } else if (theme === 'navy') {
+                heroBanner.classList.add('bg-[#1f1d3d]', 'text-white', 'border-indigo-900');
+            } else {
+                heroBanner.classList.add('bg-neutral-100', 'text-neutral-900', 'border-neutral-200');
+            }
+            renderEverything();
+        }
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('kutch_mobile_lang', lang);
+            langSelector.value = lang;
+            renderEverything();
+        }
+
+        themeSelector.addEventListener('change', (e) => applyTheme(e.target.value));
+        langSelector.addEventListener('change', (e) => applyLanguage(e.target.value));
+
+        applyTheme(currentTheme);
+        applyLanguage(currentLang);
+
+        function renderEverything() {
+            // Update static UI elements
+            const t = uiText[currentLang];
+            document.getElementById('ui-title').innerText = t.title;
+            document.getElementById('ui-subtitle').innerText = t.subtitle;
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-desc').innerText = t.heroDesc;
+            document.getElementById('hero-stat-1').innerText = t.stat1;
+            document.getElementById('hero-stat-2').innerText = t.stat2;
+            document.getElementById('ticker-1').innerText = t.ticker1;
+            document.getElementById('ticker-2').innerText = t.ticker2;
+            document.getElementById('ticker-3').innerText = t.ticker3;
+            document.getElementById('footer-text').innerText = t.footer;
+
+            renderTabs();
+            renderItinerary();
+        }
+
+        function renderTabs() {
+            const tabsContainer = document.getElementById('day-tabs');
+            tabsContainer.innerHTML = '';
+
+            tripData.forEach((d) => {
+                const isActive = d.day === activeDay;
+                const tabBtn = document.createElement('button');
+                
+                let activeClass = 'bg-black text-white';
+                if (currentTheme === 'dark') activeClass = 'bg-white text-black';
+                if (currentTheme === 'pastel') activeClass = 'bg-black text-white';
+                if (currentTheme === 'navy') activeClass = 'bg-orange-500 text-white';
+
+                tabBtn.className = `flex-shrink-0 px-3.5 py-2 rounded-full font-semibold text-xs transition-all duration-200 flex flex-col items-center border ${
+                    isActive 
+                        ? activeClass + ' border-transparent shadow-sm' 
+                        : 'bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border-neutral-200 dark:border-neutral-800'
+                }`;
+                tabBtn.innerHTML = `
+                    <span class="text-[9px] font-mono-figma opacity-80">DAY ${d.day}</span>
+                    <span class="text-[11px] font-bold mt-0.5">${d.date.slice(0,5)}</span>
+                `;
+                tabBtn.onclick = () => {
+                    activeDay = d.day;
+                    if (currentTheme === 'pastel') applyTheme('pastel');
+                    renderTabs();
+                    renderItinerary();
+                };
+                tabsContainer.appendChild(tabBtn);
+            });
+        }
+
+        function renderItinerary() {
+            const container = document.getElementById('itinerary-container');
+            const d = tripData.find(item => item.day === activeDay);
+            const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.mapQuery)}`;
+            const t = uiText[currentLang];
+
+            let cardBg = 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800';
+            let headerBg = 'bg-neutral-50 dark:bg-neutral-900/50 border-neutral-200 dark:border-neutral-800';
+            let waypointBg = 'bg-neutral-50 dark:bg-neutral-900/60 border-neutral-200 dark:border-neutral-800';
+
+            if (currentTheme === 'pastel') {
+                const pastelCards = ['bg-[#dceeb1]', 'bg-[#c5b0f4]', 'bg-[#f4ecd6]', 'bg-[#efd4d4]', 'bg-[#c8e6cd]', 'bg-[#f3c9b6]'];
+                const cardColor = pastelCards[(d.day - 1) % pastelCards.length];
+                cardBg = `${cardColor} text-neutral-900 border-black/10 shadow-sm`;
+                headerBg = 'bg-white/40 border-black/10';
+                waypointBg = 'bg-white/60 border-black/10';
+            } else if (currentTheme === 'navy') {
+                cardBg = 'bg-[#1f1d3d] text-white border-indigo-900 shadow-md';
+                headerBg = 'bg-[#181630] border-indigo-900';
+                waypointBg = 'bg-[#282550] border-indigo-800';
+            }
+
+            let titleText = d.titles[currentLang] || d.titles['gujish'];
+            let nightStayText = d.nightStays[currentLang] || d.nightStays['gujish'];
+
+            let html = `
+                <div class="${cardBg} rounded-2xl border shadow-sm overflow-hidden transition-all duration-300">
+                    <!-- Header -->
+                    <div class="p-4 sm:p-5 ${headerBg} border-b space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 bg-black text-white dark:bg-white dark:text-black rounded-full text-[10px] font-mono-figma font-bold">DAY ${d.day}</span>
+                            <span class="text-[11px] font-mono-figma opacity-80"><i class="fa-regular fa-calendar mr-1"></i>${d.date}</span>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight">${titleText}</h3>
+
+                        <!-- Driving Stats & Map Button -->
+                        <div class="flex flex-col space-y-2 pt-1">
+                            <div class="flex items-center justify-between px-3 py-1.5 rounded-xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-neutral-800/40 text-[11px] font-mono-figma">
+                                <span class="text-orange-600 dark:text-orange-400 font-bold"><i class="fa-solid fa-road mr-1"></i>${d.driving}</span>
+                                <span class="opacity-80"><i class="fa-regular fa-clock mr-1"></i>${d.duration}</span>
+                            </div>
+
+                            <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center space-x-2 py-2.5 bg-black text-white dark:bg-white dark:text-black font-medium text-xs font-mono-figma rounded-xl shadow transition active:scale-95">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <span>${t.mapBtn}</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Night Stay Banner -->
+                    <div class="px-4 py-2.5 bg-amber-500/10 border-b border-amber-500/20 flex items-center space-x-2.5 text-xs font-medium">
+                        <i class="fa-solid fa-bed text-amber-500"></i>
+                        <span class="truncate"><strong>${t.nightStayLabel}</strong> ${nightStayText}</span>
+                    </div>
+
+                    <!-- Waypoints Timeline -->
+                    <div class="p-4 sm:p-5">
+                        <h4 class="text-[10px] uppercase font-mono-figma tracking-wider opacity-60 mb-4">${t.waypointsTitle}</h4>
+                        
+                        <div class="relative pl-5 space-y-4 before:content-[''] before:absolute before:left-1.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-neutral-300 dark:before:bg-neutral-700">
+            `;
+
+            d.waypoints.forEach((p) => {
+                const singleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.query)}`;
+                const pName = p.names[currentLang] || p.names['gujish'];
+                const pDesc = p.descs[currentLang] || p.descs['gujish'];
+
+                html += `
+                    <div class="relative group">
+                        <!-- Timeline Dot -->
+                        <div class="absolute -left-[27px] top-1 w-5 h-5 rounded-full bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-[9px] font-bold border-2 border-white dark:border-neutral-900 shadow">${p.label}</div>
+                        
+                        <div class="${waypointBg} p-3.5 rounded-xl border space-y-2">
+                            <div>
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <span class="text-[9px] font-mono-figma text-white bg-black dark:bg-white dark:text-black px-1.5 py-0.5 rounded">WAYPOINT ${p.label}</span>
+                                    <h5 class="font-bold text-sm leading-snug">${pName}</h5>
+                                </div>
+                                <p class="text-xs opacity-80 leading-relaxed">${pDesc}</p>
+                            </div>
+
+                            <div class="pt-1 flex justify-end">
+                                <a href="${singleMapUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1 px-3 py-1.5 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg text-[11px] font-medium transition shadow-sm">
+                                    <i class="fa-solid fa-location-arrow text-orange-500 text-[10px]"></i>
+                                    <span>${t.locateBtn} ${p.label}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        window.onload = function() {
+            renderEverything();
+        };
+    </script>
+</body>
+</html>
