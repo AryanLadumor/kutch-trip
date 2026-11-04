@@ -46,7 +46,7 @@
                     <i class="fa-solid fa-compass text-xs"></i>
                 </div>
                 <div>
-                    <h1 id="ui-title" class="font-bold text-sm tracking-tight">Kutch Trip</h1>
+                    <h1 id="ui-title" class="font-bold text-sm tracking-tight">Kutch Trip Nov 2026</h1>
                 </div>
             </div>
             
@@ -55,7 +55,7 @@
                 <div class="relative">
                     <select id="lang-selector" class="appearance-none bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 text-[11px] font-mono-figma font-medium px-3 py-1.5 pr-6 rounded-full border border-neutral-300 dark:border-neutral-700 focus:outline-none">
                         <option value="gujish">🇮🇳 Gujish</option>
-                        <option value="gujarati"> 🏴ગુજરાતી</option>
+                        <option value="gujarati">🏴 ગુજરાતી</option>
                         <option value="english">🇺🇸 English</option>
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1.5 text-neutral-500">
@@ -319,14 +319,13 @@
 
         let activeDay = 1;
         let currentTheme = localStorage.getItem('kutch_mobile_theme') || 'pastel';
-        let currentLang = localStorage.getItem('kutch_mobile_lang') || 'gujish'; // Default to Gujish
+        let currentLang = localStorage.getItem('kutch_mobile_lang') || 'gujish';
 
         const themeSelector = document.getElementById('theme-selector');
         const langSelector = document.getElementById('lang-selector');
         const htmlElement = document.documentElement;
         const heroBanner = document.getElementById('hero-banner');
 
-        // UI text translations for top bar, footer, ticker
         const uiText = {
             gujish: {
                 title: "Kutch Trip Nov 2026", subtitle: "Mobile Itinerary",
@@ -393,10 +392,8 @@
         applyLanguage(currentLang);
 
         function renderEverything() {
-            // Update static UI elements
             const t = uiText[currentLang];
             document.getElementById('ui-title').innerText = t.title;
-            document.getElementById('ui-subtitle').innerText = t.subtitle;
             document.getElementById('hero-title').innerText = t.heroTitle;
             document.getElementById('hero-desc').innerText = t.heroDesc;
             document.getElementById('hero-stat-1').innerText = t.stat1;
@@ -410,6 +407,7 @@
             renderItinerary();
         }
 
+        // Restored Day Selector Tabs Rendering Function
         function renderTabs() {
             const tabsContainer = document.getElementById('day-tabs');
             tabsContainer.innerHTML = '';
